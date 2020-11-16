@@ -1,0 +1,22 @@
+
+<div class="board"
+
+    >
+    <ng-container *ngFor="let item of chessBoard">
+        <app-piece
+            [id]="item.id"
+            [color]="item.color"
+            [name]="item.name"
+            *ngIf="item.name"
+            cdkDragBoundary=".board"
+            cdkDrag
+            (cdkDragEnded)="onEndDrag($event)"
+            (click)="clickOnPiece(item)"
+            ></app-piece>
+        <div [id]="item.id" class="empty" *ngIf="!item.name"></div>
+    </ng-container>
+</div>
+<div class="turn">
+    <div class="white" [ngClass]="{'active': turn === 'white'}">{{timeWhite}}</div>
+    <div class="black" [ngClass]="{'active': turn === 'black'}">{{timeBlack}}</div>
+</div>

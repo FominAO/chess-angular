@@ -1,0 +1,13 @@
+.piece {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: flex-end;
+    img {
+        width: 100%;
+    }
+    background-position: center;
+    &:active {
+        filter: brightness(1.5);
+    }
+}

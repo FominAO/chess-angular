@@ -1,0 +1,12 @@
+<ng-container *ngIf="!opened">
+    <img class="settings" src="../../../assets/images/ui/settings.png" (click)="open()" alt="">
+</ng-container>
+
+<ng-container *ngIf="opened">
+    <div class="menu">
+        <app-modal-menu [title]="'Меню'" (close)="close()">
+            <div class="intro">Добро пожаловать в игру!</div>
+        </app-modal-menu>
+
+    </div>
+</ng-container>

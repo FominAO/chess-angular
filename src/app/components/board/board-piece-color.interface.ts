@@ -1,0 +1,1 @@
+export type BoardPieceColor = ('black' | 'white' | '');

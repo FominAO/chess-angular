@@ -1,0 +1,1 @@
+export type BoardPieceName = ('pawn' | 'knight' | 'bishop' | 'rook' | 'king' | 'queen' | '');

@@ -1,0 +1,16 @@
+<div class="modal">
+  <div class="modal-window">
+    <div class="modal-header">
+      <div class="title">{{title}}</div>
+    </div>
+    <div class="modal-body">
+      <ng-content></ng-content>
+      
+    </div>
+    <div class="modal-footer">
+      <button ch-button (click)="_toggleClose()">Закрыть</button>
+    </div>
+  </div>
+  <!-- <div class="back"></div> -->
+</div>
+
