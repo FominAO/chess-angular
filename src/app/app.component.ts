@@ -11,7 +11,8 @@ export class AppComponent implements OnInit {
   loaded = false;
 
   BOARD_POSITION_OFFSET_X = 1442/492;
-  BOARD_POSITION_OFFSET_Y = 811/270;
+  BOARD_POSITION_OFFSET_Y = 1442/268;
+  BOARD_POSITION_SIZE_OFFSET_Y = 860/258;
   BOARD_X_RATIO = 1442/454;
   BOARD_Y_RATIO = 811/454;
 
@@ -28,11 +29,15 @@ export class AppComponent implements OnInit {
   }
   initBoard() {
     let img = document.getElementById('background-image');
-    this.top = img.clientHeight / this.BOARD_POSITION_OFFSET_Y;
+    let resizeRatio = 1;
+    if (img.clientWidth / img.clientHeight > (16/1)) {  
+      resizeRatio = (16/9) / (img.clientWidth / img.clientHeight);
+    }
+    this.top = (img.clientWidth / this.BOARD_POSITION_OFFSET_Y) - (img.clientWidth*(9/16) - img.clientHeight)/2;
     this.left = img.clientWidth / this.BOARD_POSITION_OFFSET_X;
-    this.height = img.clientHeight / this.BOARD_Y_RATIO;
     this.width = img.clientWidth / this.BOARD_X_RATIO;
-    console.log(this.top, this.left, this.height, this.width);
+    this.height = this.width;
+    console.log(this.top, this.left, this.height, this.width, resizeRatio);
     this.loaded = true;
   }
 }
