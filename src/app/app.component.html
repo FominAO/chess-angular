@@ -10,6 +10,10 @@
     ></app-highlights> -->
     <app-highlights
     *ngIf="loaded"
+    [style.top]="top + 'px'"
+    [style.left]="left + 'px'"
+    [style.height]="height + 'px'"
+    [style.width]="width + 'px'"
     ></app-highlights>
     <app-board
         *ngIf="loaded"

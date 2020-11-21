@@ -1,4 +1,4 @@
 export interface Highlight {
-    type: 'active' | '';
+    type: 'active' | 'path' | '';
     
 }

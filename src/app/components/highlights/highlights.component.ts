@@ -7,13 +7,12 @@ import { HighlightsService } from './highlights.service';
   styleUrls: ['./highlights.component.scss']
 })
 export class HighlightsComponent implements OnInit {
-  @Input() highlights = [];
+  highlights = [];
+  @Input() width;
   constructor(private service: HighlightsService) { }
 
   ngOnInit(): void {
     this.service.highlights.subscribe( state => {
-      console.log(state);
-      
       this.highlights = state;
     })
   }

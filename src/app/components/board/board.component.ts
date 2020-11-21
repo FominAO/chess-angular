@@ -55,6 +55,12 @@ export class BoardComponent implements OnInit {
     }
     this.movePieceByOffset(event.source.element.nativeElement.id, x, y);
     event.source.reset();
+    this.highlightsService.resetSelection();
+  }
+  onMouseDown(piece) {
+    this.highlightsService.highlightCellByIndex(piece.getIndex());
+    this.highlightsService.highlightPath(piece.getPossibleMoves())
+
   }
 
   movePieceByOffset(id: string, x: number, y: number) {
@@ -145,8 +151,8 @@ export class BoardComponent implements OnInit {
     this.chessBoard = newChessBoard;
   }
   clickOnPiece(piece: BoardPiece) {
-    
-    this.highlightsService.highlightCellByIndex(piece.getIndex())
+    // this.highlightsService.highlightPath(piece.getPossibleMoves())
+    // this.highlightsService.highlightCellByIndex(piece.getIndex())
   }
   toggleTurn() {
     this.turn = this.turn === 'white' ? 'black' : 'white';
@@ -169,4 +175,8 @@ export class BoardComponent implements OnInit {
   addSecondToString(str) {
     return this.transformSecondsToString(this.getSecondsFromString(str) + 1);    
   }
+
+  ////
+
+  
 }

@@ -10,6 +10,10 @@
             animation: glowing 2s infinite ease;
             filter: blur(1px);
         }
+        &.path {
+            animation: glowing-path 2s infinite ease;
+            filter: blur(1px);
+        }
     }
 }
 
@@ -22,5 +26,16 @@
     }
     100% {
         box-shadow: 0 0 7px 2px #bf773f inset;
+    }
+}
+@keyframes glowing-path {
+    0% {
+        box-shadow: 0 0 7px 2px #c0e04b inset;
+    }
+    50% {
+        box-shadow: 0 0 7px 4px #c0e04b inset;
+    }
+    100% {
+        box-shadow: 0 0 7px 2px #c0e04b inset;
     }
 }

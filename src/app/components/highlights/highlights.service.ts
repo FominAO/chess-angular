@@ -14,7 +14,9 @@ export class HighlightsService {
   highlightCellByIndex(index) {
     let newHighlights = this.highlights.getValue();
     newHighlights = newHighlights.map( i => {
-      i.type = '';
+      if (i.type === 'active') {
+        i.type = '';
+      }
       return i;
     });
     newHighlights[index] = {type: 'active'};
@@ -24,4 +26,28 @@ export class HighlightsService {
   cleanHighlights() {
     this.highlights.next(this.EMPTY_HIGHLIGHTS);
   }
+  resetSelection() {
+    let newHighlights = this.highlights.getValue();
+    newHighlights = newHighlights.map( i => {
+ 
+        i.type = '';
+
+      return i;
+    });
+    this.highlights.next(newHighlights);
+  }
+  highlightPath(path: number[]) {
+    let newHighlights = this.highlights.getValue();
+    console.log(path);
+    
+    newHighlights = newHighlights.map( (cell, index) => {
+      if (cell.type === 'path') {
+        cell.type = '';
+      }
+      if (path.includes(index)) {
+        cell.type = 'path';
+      }
+      return cell;
+    });
+  } 
 }

@@ -12,6 +12,7 @@
             cdkDrag
             (cdkDragEnded)="onEndDrag($event)"
             (click)="clickOnPiece(item)"
+            (mousedown)="onMouseDown(item)"
             ></app-piece>
         <div [id]="item.id" class="empty" *ngIf="!item.name"></div>
     </ng-container>
