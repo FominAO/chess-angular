@@ -38,7 +38,6 @@ export class HighlightsService {
   }
   highlightPath(path: number[]) {
     let newHighlights = this.highlights.getValue();
-    console.log(path);
     
     newHighlights = newHighlights.map( (cell, index) => {
       if (cell.type === 'path') {
