@@ -59,7 +59,7 @@ export class BoardComponent implements OnInit {
   }
   onMouseDown(piece) {
     this.highlightsService.highlightCellByIndex(piece.getIndex());
-    this.highlightsService.highlightPath(piece.getPossibleMoves())
+    this.highlightsService.highlightPath(piece.getPossibleMoves(this.chessBoard))
 
   }
 
@@ -99,6 +99,10 @@ export class BoardComponent implements OnInit {
 
   makeTurn(pieceIndex: number, nextPieceIndex: number) {
     const piece: BoardPiece = this.chessBoard[pieceIndex];
+    const moves = piece.getPossibleMoves(this.chessBoard);
+    if (!moves.includes(nextPieceIndex)) {
+      return;
+    }
     const nextPiece: BoardPiece = this.chessBoard[nextPieceIndex];
     if (piece.color !== this.turn) {
       console.log('нельзя');

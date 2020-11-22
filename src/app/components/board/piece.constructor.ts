@@ -50,7 +50,7 @@ export class BoardPiece {
         this._touched = !this.touched;
     }
 
-    getPossibleMoves() {
+    getPossibleMoves(board: BoardPiece[]) {
         const i = this.getIndex();
         let result = [];
         const coords = this._gc(i);
@@ -63,7 +63,14 @@ export class BoardPiece {
                 (this.isCoordsEqual(coords, coordsLocal) || this._turn.rep)
                 && this.incrementPositionValid(coordsLocal, vec)
                 ) {
-                result.push(this._gi(coordsLocal))
+                    let nextIndex = this._gi(coordsLocal);
+                    if (board[nextIndex].name && board[nextIndex].color !== this.color) {
+                        result.push(nextIndex)
+                        break;
+                    } else if (board[nextIndex].name) {
+                        break;
+                    }
+                result.push(nextIndex)
             }
         })
         return result;
